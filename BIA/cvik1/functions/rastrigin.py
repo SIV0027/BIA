@@ -1,16 +1,16 @@
 import numpy as np
-from function import Function
+from functions.base.function import Function
 
-class Schwefel(Function):
+class Rastrigin(Function):
     def calculate(self, params):
         d = len(params)
 
         #suma
         suma = 0
         for xi in params:
-            suma += xi * np.sin(np.sqrt(np.abs(xi)))
+            suma += (xi**2 - 10 * np.cos(2 * np.pi * xi))
 
         #summary
-        ret = 418.9829 * d - suma
+        ret = 10 * d + suma
 
         return ret

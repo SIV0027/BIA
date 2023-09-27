@@ -1,14 +1,16 @@
 import numpy as np
 
-from sphere import Sphere
-from ackley import Ackley
-from rastrigin import Rastrigin
-from rosenbrock import Rosenbrock
-from griewank import Griewank
-from schwefel import Schwefel
-from levy import Levy
-from michalewicz import Michalewicz
-from zakharov import Zakharov
+from functions.sphere import Sphere
+from functions.ackley import Ackley
+from functions.rastrigin import Rastrigin
+from functions.rosenbrock import Rosenbrock
+from functions.griewank import Griewank
+from functions.schwefel import Schwefel
+from functions.levy import Levy
+from functions.michalewicz import Michalewicz
+from functions.zakharov import Zakharov
+
+from blindSearch import BlindSearch
 
 if __name__ == "__main__":
     #sphere = Sphere()
