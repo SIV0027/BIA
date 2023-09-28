@@ -13,30 +13,35 @@ from functions.zakharov import Zakharov
 from blindSearch import BlindSearch
 
 if __name__ == "__main__":
-    #sphere = Sphere()
-    #sphere.visualize(-10, 10, -6, 6)
+    #functions a its axis ranges (used part of its domains of functions)
+    sphere = Sphere()
+    sphereRanges = [-10, 10, -6, 6]
 
-    #ackley = Ackley(a = 20, b = 0.2, c = 2 * np.pi)
-    #ackley.visualize(-40, 40, -40, 40)
+    ackley = Ackley(a = 20, b = 0.2, c = 2 * np.pi)
+    ackleyRanges = [-40, 40, -40, 40]
 
-    #rastrigin = Rastrigin()
-    #rastrigin.visualize(-5, 5, -5, 5)
+    rastrigin = Rastrigin()
+    rastriginRanges = [-5, 5, -5, 5]
 
-    #rosenbrock = Rosenbrock()
-    #rosenbrock.visualize(-10, 10, -6, 6)
+    rosenbrock = Rosenbrock()
+    rosenbrockRanges = [-10, 10, -6, 6]
 
-    #k = 2
-    #griewank = Griewank()
-    #griewank.visualize(k * -5, k * 5, k * -5, k * 5)
+    k = 2
+    griewank = Griewank()
+    griewankRanges = [k * -5, k * 5, k * -5, k * 5]
 
-    #schwefel = Schwefel()
-    #schwefel.visualize(-500, 500, -500, 500)
+    schwefel = Schwefel()
+    schwefelRanges = [-500, 500, -500, 500]
 
-    #levy = Levy()
-    #levy.visualize(-10, 10, -10, 10)
+    levy = Levy()
+    levyRanges = [-10, 10, -10, 10]
 
-    #michalewicz = Michalewicz(m = 10) # poss ?
-    #michalewicz.visualize(0, 4, 0, 4)
+    michalewicz = Michalewicz(m = 10)
+    michalewiczRanges = [0, 4, 0, 4]
 
     zakharov = Zakharov()
-    zakharov.visualize(-10, 10, -10, 10)
+    zakharovRanges = [-10, 10, -10, 10]
+    
+    #blindSearch
+    blindSearch = BlindSearch(ackley)
+    print(blindSearch.search(ackleyRanges, 30))
