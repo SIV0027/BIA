@@ -1,16 +1,16 @@
 import numpy as np
 
-from functions.sphere import Sphere
-from functions.ackley import Ackley
-from functions.rastrigin import Rastrigin
-from functions.rosenbrock import Rosenbrock
-from functions.griewank import Griewank
-from functions.schwefel import Schwefel
-from functions.levy import Levy
-from functions.michalewicz import Michalewicz
-from functions.zakharov import Zakharov
+from src.functions.sphere import Sphere
+from src.functions.ackley import Ackley
+from src.functions.rastrigin import Rastrigin
+from src.functions.rosenbrock import Rosenbrock
+from src.functions.griewank import Griewank
+from src.functions.schwefel import Schwefel
+from src.functions.levy import Levy
+from src.functions.michalewicz import Michalewicz
+from src.functions.zakharov import Zakharov
 
-from blindSearch.blindSearch import BlindSearch
+from blind_search.blind_search import Blind_search
 
 if __name__ == "__main__":
     #functions a its axis ranges (used part of its domains of functions)
@@ -42,6 +42,6 @@ if __name__ == "__main__":
     zakharov = Zakharov()
     zakharovRanges = [-10, 10, -10, 10]
     
-    #blindSearch
-    blindSearch = BlindSearch(ackley)
-    print(blindSearch.search(ackleyRanges, 30))
+    #Blind Search
+    blind_search = Blind_search(ackley)
+    print(blind_search.search(ackleyRanges, 30))

@@ -1,5 +1,5 @@
 import numpy as np
-from functions.base.function import Function
+from src.functions.base.function import Function
 
 class Zakharov(Function):
     def calculate(self, params):

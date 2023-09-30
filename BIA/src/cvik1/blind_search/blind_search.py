@@ -1,6 +1,6 @@
 import numpy as np
 
-class BlindSearch:
+class Blind_search:
     def __init__(self, func):
         self.func = func
 

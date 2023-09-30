@@ -1,5 +1,5 @@
 import numpy as np
-from functions.base.function import Function
+from src.functions.base.function import Function
 
 class Ackley(Function):
     def calculate(self, params):
