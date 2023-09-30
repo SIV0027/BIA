@@ -10,7 +10,7 @@ from functions.levy import Levy
 from functions.michalewicz import Michalewicz
 from functions.zakharov import Zakharov
 
-from blindSearch import BlindSearch
+from blindSearch.blindSearch import BlindSearch
 
 if __name__ == "__main__":
     #functions a its axis ranges (used part of its domains of functions)
