@@ -1,3 +1,5 @@
+from typing import List, Tuple
+
 import numpy as np
 
 from src.functions.sphere import Sphere
@@ -14,34 +16,34 @@ from blind_search.blind_search import Blind_search
 
 if __name__ == "__main__":
     #functions a its axis ranges (used part of its domains of functions)
-    sphere = Sphere()
-    sphereRanges = [-10, 10, -6, 6]
+    sphere: Sphere = Sphere()
+    sphereIntervals: List[Tuple[int, int]] = [(-10, 10), (-6, 6)]
 
-    ackley = Ackley(a = 20, b = 0.2, c = 2 * np.pi)
-    ackleyRanges = [-40, 40, -40, 40]
+    ackley: Ackley = Ackley(a = 20, b = 0.2, c = 2 * np.pi)
+    ackleyIntervals: List[Tuple[int, int]] = [(-40, 40), (-40, 40)]
 
-    rastrigin = Rastrigin()
-    rastriginRanges = [-5, 5, -5, 5]
+    rastrigin: Rastrigin = Rastrigin()
+    rastriginIntervals: List[Tuple[int, int]] = [(-5, 5), (-5, 5)]
 
-    rosenbrock = Rosenbrock()
-    rosenbrockRanges = [-10, 10, -6, 6]
+    rosenbrock: Rosenbrock = Rosenbrock()
+    rosenbrockIntervals: List[Tuple[int, int]] = [(-10, 10), (-6, 6)]
 
     k = 2
-    griewank = Griewank()
-    griewankRanges = [k * -5, k * 5, k * -5, k * 5]
+    griewank: Griewank = Griewank()
+    griewankIntervals: List[Tuple[int, int]] = [(k * -5, k * 5), (k * -5, k * 5)]
 
-    schwefel = Schwefel()
-    schwefelRanges = [-500, 500, -500, 500]
+    schwefel: Schwefel = Schwefel()
+    schwefelIntervals: List[Tuple[int, int]] = [(-500, 500), (-500, 500)]
 
-    levy = Levy()
-    levyRanges = [-10, 10, -10, 10]
+    levy: Levy = Levy()
+    levyIntervals: List[Tuple[int, int]] = [(-10, 10), (-10, 10)]
 
-    michalewicz = Michalewicz(m = 10)
-    michalewiczRanges = [0, 4, 0, 4]
+    michalewicz: Michalewicz = Michalewicz(m = 10)
+    michalewiczIntervals: List[Tuple[int, int]] = [(0, 4), (0, 4)]
 
-    zakharov = Zakharov()
-    zakharovRanges = [-10, 10, -10, 10]
+    zakharov: Zakharov = Zakharov()
+    zakharovIntervals: List[Tuple[int, int]] = [(-10, 10), (-10, 10)]
     
     #Blind Search
-    blind_search = Blind_search(ackley)
-    print(blind_search.search(ackleyRanges, 30))
+    blind_search = Blind_search(zakharov)
+    print(blind_search.search(zakharovIntervals, 30))

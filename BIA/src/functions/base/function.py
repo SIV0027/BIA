@@ -1,15 +1,40 @@
+from typing import List, Tuple
+
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
 
 class Function():
-    def __init__(self, **kwargs):
-        self.kwargs = kwargs
+    def __init__(self, 
+        allowed_keys: List[str] = [],
+        **kwargs):
 
-    def calculate(self, params):
+        len_args_keys = len(kwargs.keys())
+        len_allowed_keys = len(allowed_keys)
+        if(len_args_keys < len_allowed_keys):
+            raise ValueError(f"Not all variables have been entered to constructor of class {self.__class__.__name__}.")
+        elif(len_args_keys > len_allowed_keys):
+            raise ValueError(f"Too much variables have been entered to constructor of class {self.__class__.__name__}.")
+        for key in kwargs.keys():
+            if key not in allowed_keys:
+                raise ValueError(f"Variable {key} is not allowed in constructor of class {self.__class__.__name__}.")
+
+    #"abstract" method for overriding by concrete function
+    #template for calcuation of the value by domain of function 
+    def calculate(self, 
+        params: List[float]) -> float:
         pass
 
-    def visualize(self, x1From, x1To, x2From, x2To, points, best_point):
+    #visualizes concrete function
+    def visualize(self, 
+        intervals: List[Tuple[float, float]],
+        best_point: List[float],
+        points: List[List[float]] = []) -> None:
+
+        xf, xs = intervals
+        x1From, x1To = xf
+        x2From, x2To = xs
+
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1, projection='3d')
 
@@ -24,7 +49,7 @@ class Function():
         x1, x2 = np.meshgrid(x1axis, x2axis)
         f1_2 = self.calculate([x1, x2])
 
-        surf = ax.plot_surface(x1, x2, f1_2, cmap="jet")
+        surf = ax.plot_surface(x1, x2, f1_2, cmap="jet", alpha = 0.7)
 
         ax.set_xlabel("x1")
         ax.set_ylabel("x2")

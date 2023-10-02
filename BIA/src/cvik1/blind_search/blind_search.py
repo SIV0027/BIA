@@ -1,28 +1,35 @@
+from typing import List, Tuple
+
 import numpy as np
 
 class Blind_search:
     def __init__(self, func):
         self.func = func
 
-    def generate_solution(self, x1From, x1To, x2From, x2To):
-        ret = []
+    def generate_solution(self,
+        intervals: List[Tuple[int, int]]) -> List[int]:
 
-        ret.append(np.random.randint(x1From, x1To))
-        ret.append(np.random.randint(x2From, x2To))
+        ret: List[int] = []
+
+        for interval in intervals:
+            start, end = interval
+            ret.append(np.random.randint(start, end))
 
         return ret
 
-    def search(self, ranges, count):
-        x1From, x1To, x2From, x2To = ranges
-        best_solution = self.generate_solution(x1From, x1To, x2From, x2To)
-        best_value = self.func.calculate(best_solution)
+    def search(self,
+        intervals: List[Tuple[int, int]],
+        count) -> Tuple[List[int], float]:
 
-        best_point = [best_solution[0], best_solution[1], best_value]
-        points = []
+        best_solution: List[int] = self.generate_solution(intervals)
+        best_value: float = self.func.calculate(best_solution)
+
+        best_point: List[float] = [best_solution[0], best_solution[1], best_value]
+        points: List[List[float]] = []
 
         for i in range(0, count):
-            random_solution = self.generate_solution(x1From, x1To, x2From, x2To)
-            random_solution_value = self.func.calculate(random_solution)
+            random_solution: List[int] = self.generate_solution(intervals)
+            random_solution_value: float = self.func.calculate(random_solution)
 
             if random_solution_value < best_value:
                 best_solution = random_solution
@@ -33,6 +40,8 @@ class Blind_search:
                 points.append([random_solution[0], random_solution[1], random_solution_value])
 
         
-        self.func.visualize(x1From, x1To, x2From, x2To, points, best_point)
+        self.func.visualize(intervals, best_point, points)
 
-        return [best_solution, best_value]
+        ret: Tuple[List[int], float] = (best_solution, best_value)
+
+        return ret

@@ -1,14 +1,24 @@
+from typing import List
+
 import numpy as np
+
 from src.functions.base.function import Function
 
 class Michalewicz(Function):
-    def calculate(self, params):
+    def __init__(self, **kwargs):
+        super().__init__(["m"], **kwargs)
+
+        self.m: int = kwargs.get("m")
+
+    def calculate(self,
+        params: List[float]) -> float:
+
         #suma
-        suma = 0
+        suma: float = 0
         for i, xi in enumerate(params):
-                suma += np.sin(xi) * np.sin(((i + 1) * xi**2) / np.pi)**(2 * self.kwargs["m"])
+                suma += np.sin(xi) * np.sin(((i + 1) * xi**2) / np.pi)**(2 * self.m)
 
         #summary
-        ret = -suma
+        ret: float = -suma
 
         return ret
