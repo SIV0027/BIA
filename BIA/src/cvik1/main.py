@@ -2,6 +2,8 @@ from typing import List, Tuple
 
 import numpy as np
 
+from src.functions.point.reference_point import Reference_point
+
 from src.functions.sphere import Sphere
 from src.functions.ackley import Ackley
 from src.functions.rastrigin import Rastrigin
@@ -46,4 +48,5 @@ if __name__ == "__main__":
     
     #Blind Search
     blind_search = Blind_search(zakharov)
-    print(blind_search.search(zakharovIntervals, 30))
+    possible_global_minimum: Reference_point = blind_search.search(zakharovIntervals, count = 30)
+    print(possible_global_minimum.get_params(), possible_global_minimum.get_value())

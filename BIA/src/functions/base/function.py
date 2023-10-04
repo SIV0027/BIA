@@ -1,5 +1,9 @@
 from typing import List, Tuple
 
+from src.commons.common import Common
+
+from src.functions.point.reference_point import Reference_point
+
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D
 import numpy as np
@@ -9,15 +13,7 @@ class Function():
         allowed_keys: List[str] = [],
         **kwargs):
 
-        len_args_keys = len(kwargs.keys())
-        len_allowed_keys = len(allowed_keys)
-        if(len_args_keys < len_allowed_keys):
-            raise ValueError(f"Not all variables have been entered to constructor of class {self.__class__.__name__}.")
-        elif(len_args_keys > len_allowed_keys):
-            raise ValueError(f"Too much variables have been entered to constructor of class {self.__class__.__name__}.")
-        for key in kwargs.keys():
-            if key not in allowed_keys:
-                raise ValueError(f"Variable {key} is not allowed in constructor of class {self.__class__.__name__}.")
+        Common.check_kwargs("constructor of class {self.__class__.__name__}", allowed_keys, **kwargs)
 
     #"abstract" method for overriding by concrete function
     #template for calcuation of the value by domain of function 
@@ -28,8 +24,8 @@ class Function():
     #visualizes concrete function
     def visualize(self, 
         intervals: List[Tuple[float, float]],
-        best_point: List[float],
-        points: List[List[float]] = []) -> None:
+        best_point: Reference_point,
+        points: List[Reference_point] = []) -> None:
 
         xf, xs = intervals
         x1From, x1To = xf
@@ -38,11 +34,11 @@ class Function():
         fig = plt.figure()
         ax = fig.add_subplot(1, 1, 1, projection='3d')
 
-        ax.scatter([x[0] for x in points],
-                   [x[1] for x in points],
-                   [x[2] for x in points],
+        ax.scatter([x.get_params()[0] for x in points],
+                   [x.get_params()[1] for x in points],
+                   [x.get_value() for x in points],
                    c = "purple", s = 50)
-        ax.scatter(best_point[0], best_point[1], best_point[2], c = "red", s = 70)
+        ax.scatter(best_point.get_params()[0], best_point.get_params()[1], best_point.get_value(), c = "red", s = 70)
 
         x1axis = np.linspace(x1From, x1To, 500)
         x2axis = np.linspace(x2From, x2To, 500)
