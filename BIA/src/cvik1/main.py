@@ -47,6 +47,6 @@ if __name__ == "__main__":
     zakharovIntervals: List[Tuple[int, int]] = [(-10, 10), (-10, 10)]
     
     #Blind Search
-    blind_search = Blind_search(zakharov)
-    possible_global_minimum: Reference_point = blind_search.search(zakharovIntervals, count = 30)
+    blind_search = Blind_search(michalewicz)
+    possible_global_minimum: Reference_point = blind_search.search(michalewiczIntervals, count = 30)
     print(possible_global_minimum.get_params(), possible_global_minimum.get_value())
