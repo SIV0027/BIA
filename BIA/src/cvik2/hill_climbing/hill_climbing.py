@@ -1,6 +1,6 @@
 from typing import List, Tuple, cast
 
-from src.search_methods.base.search_method import Search_method
+from src.search_methods.base.search_method import Search_method, Intervals
 
 from src.commons.common import Common
 
@@ -10,8 +10,6 @@ import random
 from src.functions.base.function import Function
 from src.functions.point.point import Point
 from src.functions.point.reference_point import Reference_point
-
-Intervals = List[Tuple[float, float]]
 
 class Hill_climbing(Search_method):
     def __init__(self, 
