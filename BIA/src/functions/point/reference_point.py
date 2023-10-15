@@ -2,13 +2,13 @@ from typing import List
 
 class Reference_point:
     def __init__(self,
-        params: List[int],
+        params: List[float],
         value: float):
 
-        self.params: List[int] = params
+        self.params: List[float] = params
         self.value: float = value
 
-    def get_params(self) -> List[int]:
+    def get_params(self) -> List[float]:
         return self.params
  
     def get_value(self) -> float:

@@ -2,7 +2,7 @@ from typing import List, Tuple
 
 import numpy as np
 
-from src.functions.base.function import Function
+from functions.base.function import Function
 
 class Ackley(Function):
     def __init__(self, **kwargs):

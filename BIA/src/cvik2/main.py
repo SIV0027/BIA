@@ -17,7 +17,7 @@ from src.functions.zakharov import Zakharov
 from hill_climbing.hill_climbing import Hill_climbing
 
 if __name__ == "__main__":
-    #functions a its axis ranges (used part of its domains of functions)
+    #functions and its axis ranges (used part of its domains of functions)
     sphere: Sphere = Sphere()
     sphereIntervals: List[Tuple[int, int]] = [(-10, 10), (-6, 6)]
 

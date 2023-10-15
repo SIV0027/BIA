@@ -1,8 +1,8 @@
 from typing import List, Tuple
 
-from src.commons.common import Common
+from commons.common import Common
 
-from src.functions.point.reference_point import Reference_point
+from functions.point.reference_point import Reference_point
 
 import matplotlib.pyplot as plt
 from mpl_toolkits.mplot3d import Axes3D

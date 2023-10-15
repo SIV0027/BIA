@@ -1,6 +1,6 @@
 from typing import List
 
-from src.functions.base.function import Function
+from functions.base.function import Function
 
 class Sphere(Function):
     def calculate(self,

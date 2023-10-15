@@ -2,7 +2,7 @@ from typing import List
 
 import numpy as np
 
-from src.functions.base.function import Function
+from functions.base.function import Function
 
 class Michalewicz(Function):
     def __init__(self, **kwargs):
