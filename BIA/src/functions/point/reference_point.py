@@ -12,7 +12,7 @@ class Reference_point:
         other_params: List[float] = other.get_params()
 
         params: List[float] = []
-        for i, param in self.params:
+        for i, param in enumerate(self.params):
             other_param: float = other_params[i]
             add: float = param + other_param
             params.append(add)
@@ -24,7 +24,7 @@ class Reference_point:
         other_params: List[float] = other.get_params()
 
         params: List[float] = []
-        for i, param in self.params:
+        for i, param in enumerate(self.params):
             other_param: float = other_params[i]
             sub: float = param - other_param
             params.append(sub)
@@ -38,7 +38,7 @@ class Reference_point:
             mul: float = other * param
             params.append(mul)
 
-        mul_point = Reference_point(param, None)
+        mul_point = Reference_point(params, None)
         return mul_point
 
     def get_params(self) -> List[float]:
