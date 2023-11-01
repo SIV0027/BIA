@@ -1,11 +1,13 @@
 from typing import List
 
+Intervals = list[tuple[float, float]]
+
 class Common:
     @staticmethod
     def check_kwargs(
-        error_text: str,
-        allowed_keys: List[str] = [],
-        **kwargs) -> None:
+    error_text: str,
+    allowed_keys: List[str] = [],
+    **kwargs) -> None:
         
         len_args_keys = len(kwargs.keys())
         len_allowed_keys = len(allowed_keys)
