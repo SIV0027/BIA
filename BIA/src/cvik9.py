@@ -3,7 +3,7 @@ from cvik9.swarm import Swarm
 
 if __name__ == "__main__":
 
-    function, intervals = Functions.michalewicz(m = 10)
+    function, intervals = Functions.sphere()
 
     swarm: Swarm = Swarm(function, intervals)
     swarm.search(max_generation = 50,
