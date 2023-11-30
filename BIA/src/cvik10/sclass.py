@@ -110,10 +110,10 @@ class SClass:
                 best_solution = student
         population.remove(best_solution)
 
-        #print(best_solution.solution, best_solution.evaluate(self.function))
+        print(best_solution.solution, best_solution.evaluate(self.function))
 
-        #self.function.visualize(intervals = self.intervals,
-        #                        best_point = best_solution.get_reference_point(self.function),
-        #                        points = [student.get_reference_point(self.function) for student in population])
+        self.function.visualize(intervals = self.intervals,
+                                best_point = best_solution.get_reference_point(self.function),
+                                points = [student.get_reference_point(self.function) for student in population])
 
         return best_solution.get_reference_point(self.function).get_value()
