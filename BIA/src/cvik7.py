@@ -7,8 +7,8 @@ if __name__ == "__main__":
     function, intervals = Functions.michalewicz(m = 10)
 
     soma: Soma = Soma(function, intervals)
-    soma.search_minimum(pop_size = 20,
-                        prt = 0.4,
-                        path_length = 3.0,
-                        step = 0.11,
-                        m_max = 100)
+    soma.search(pop_size = 20,
+                prt = 0.4,
+                path_length = 3.0,
+                step = 0.11,
+                m_max = 100)

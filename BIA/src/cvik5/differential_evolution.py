@@ -56,11 +56,12 @@ class Differential_evolution:
 
         return random_chosen_parents
 
-    def search_minimum(self,
+    def search(self,
     number_of_population: int,
     number_of_generation: int,
     constant_F: float,
-    constant_CR: float) -> None:    
+    constant_CR: float
+    ) -> float:    
 
         #best vector (individual or solution)
         best_vector: Reference_point
@@ -127,4 +128,6 @@ class Differential_evolution:
         
         #visualization of results
         #print(previous_best_vectors)
-        self.function.visualize(self.intervals, best_vector, previous_best_vectors)
+        #self.function.visualize(self.intervals, best_vector, previous_best_vectors)
+
+        return best_vector.get_value()

@@ -33,12 +33,13 @@ class Swarm:
 
         return params
 
-    def search_minimum(self,
+    def search(self,
     migrations_count: int,    
     particles_count: int,
     v_max: float,
     c1: int = 2,
-    c2: int = 2) -> None:
+    c2: int = 2
+    ) -> float:
         
         #init gBest by random solution
         self.gBest = Point(self.function, self.generate_random_solution()).create_reference()
@@ -64,7 +65,9 @@ class Swarm:
                     previous_best.append(self.gBest)
                     self.gBest = particle.pBest
 
-        self.function.visualize(self.intervals, self.gBest, previous_best)
+        #self.function.visualize(self.intervals, self.gBest, previous_best)
+
+        return self.gBest.get_value()
 
         
 

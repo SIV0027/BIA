@@ -29,7 +29,7 @@ class Swarm:
         max_generation: int,
         individual_count: int,
         alpha: float
-    ) -> None:
+    ) -> float:
         
         population: list[Firefly] = self.generate_initial_population(individual_count = individual_count)
 
@@ -51,8 +51,10 @@ class Swarm:
                 best_firefly = firefly
         population.remove(best_firefly)
 
-        print(best_firefly.solution, best_firefly.evaluate(self.function))
+        #print(best_firefly.solution, best_firefly.evaluate(self.function))
 
-        self.function.visualize(intervals = self.intervals,
-                                best_point = best_firefly.get_reference_point(self.function),
-                                points = [individual.get_reference_point(self.function) for individual in population])
+        #self.function.visualize(intervals = self.intervals,
+        #                        best_point = best_firefly.get_reference_point(self.function),
+        #                        points = [individual.get_reference_point(self.function) for individual in population])
+
+        return best_firefly.get_reference_point(self.function).get_value()

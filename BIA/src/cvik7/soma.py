@@ -19,13 +19,13 @@ class Soma:
 
         self.leader: Spicemen
 
-    def search_minimum(self,
+    def search(self,
         pop_size: int,
         prt: float,
         path_length: float,
         step: float,
         m_max: 100
-    ) -> None:
+    ) -> float:
         
         population: list[Spicemen] = list()
         self.leader = Spicemen(function = self.function,
@@ -70,6 +70,8 @@ class Soma:
                 previous_leaders.append(self.leader)
                 self.leader = potentional_leader
 
-        self.function.visualize(intervals = self.intervals,
-                                best_point = self.leader.get_point(),
-                                points = previous_leaders)
+        #self.function.visualize(intervals = self.intervals,
+        #                        best_point = self.leader.get_point(),
+        #                        points = previous_leaders)
+
+        return self.leader.get_point().get_value()
